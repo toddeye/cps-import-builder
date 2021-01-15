@@ -330,7 +330,7 @@ def anytone_write_channels_export(channels_dict, channels_export_file,
             # use digital channel attributes
             row_list.append(attr_dict['Color Code'])# Color Code
             row_list.append(attr_dict['Time Slot']) # Time Slot
-        row_list.append("None")                     # Scan List
+        row_list.append(attr_dict['Scan List'])          # Scan List
         row_list.append("None")                     # Receive Group List
         row_list.append(attr_dict['RX Only'])       # PTT Prohibit
         row_list.append("Off")                      # Reverse
@@ -1103,7 +1103,8 @@ def add_channels_fm_k7abd_analog_file(k7abd_analog_file_name, channels_dict,
                  'Bandwidth':ch_bandwidth,
                  'CTCSS Decode':ch_ctcss_dcs_decode,
                  'CTCSS Encode':ch_ctcss_dcs_encode,
-                 'RX Only':ch_tx_prohibit
+                 'RX Only':ch_tx_prohibit,
+                 'Scan List': zone_name
                  }})
 
         # add this channel to the specified zone
@@ -1260,7 +1261,8 @@ def add_channels_fm_k7abd_digital_others_file(k7abd_digital_others_file_name,
                  'Time Slot':ch_slot,
                  'Call Type':ch_call_type,
                  'TX Permit':ch_tx_permit,
-                 'RX Only':"Off"
+                 'RX Only':"Off",
+                 'Scan List': zone_name
                  }})
 
         # add this channel to the specified zone
@@ -1378,7 +1380,8 @@ def add_channels_fm_k7abd_digital_repeaters_file(k7abd_digital_file_name,
                     'Time Slot':ch_slot,
                     'Call Type':"Group Call",
                     'TX Permit':"Same Color Code",
-                    'RX Only':"Off"
+                    'RX Only':"Off",
+                    'Scan List': zone_name
                     }})
 
             # collect this channel and the specified zone
